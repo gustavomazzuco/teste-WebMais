@@ -1,0 +1,46 @@
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+        <input type="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+    <a class="btn btn-outline-info" href="#/cadastroProduto">Novo Registro</a>
+</nav>
+<div class="col-md-6">
+
+    <table class="table table-bordered" ng-init="lista()">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Comentário</th>
+                <th>Altura</th>
+                <th>Largura</th>
+                <th>Profundidade</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="produto in produtos track by produto.id">
+                <td>{{produto.id}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.preco}}</td>
+                <td>{{produto.comentario}}</td>
+                <td>{{produto.altura}}</td>
+                <td>{{produto.largura}}</td>
+                <td>{{produto.profundidade}}</td>
+                <td>
+                    <button class="btn btn-success btn-xs" ng-click="update_data()">
+                        <span class="glyphicon glyphicon-edit">Editar</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-xs" ng-click="delete_data()">
+                        <span class="glyphicon glyphicon-trash">Excluir</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
