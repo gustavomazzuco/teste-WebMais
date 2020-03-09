@@ -7,7 +7,7 @@
 </nav>
 <div class="col-md-6">
 
-    <table class="table table-bordered" ng-init="lista()">
+    <table ng-show="produtos.length > 0" class="table table-bordered" ng-init="lista()">
         <thead>
             <tr>
                 <th>Código</th>
@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="produto in produtos track by produto.id">
+            <tr ng-repeat="produto in produtos | filter:busca">
                 <td>{{produto.id}}</td>
                 <td>{{produto.descricao}}</td>
                 <td>{{produto.preco}}</td>
@@ -31,7 +31,7 @@
                 <td>{{produto.largura}}</td>
                 <td>{{produto.profundidade}}</td>
                 <td>
-                    <button class="btn btn-success btn-xs" ng-click="editar(produto.id, produto.descricao, produto.preco, produto.comentario. produto.altura. produto.largura, produto.profundidade)" href="#/cadastroProduto">
+                    <button class="btn btn-success btn-xs" href="#/cadastroProduto" ng-click="editar(produto)">
                         <span class="glyphicon glyphicon-edit">Editar</span>
                     </button>
                 </td>

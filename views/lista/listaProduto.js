@@ -1,30 +1,32 @@
 var app = angular.module('MyApp');
 app.controller('ProdutoListaController', function ($scope, $http) {
 
-    console.log('aqui');
+    var produtos;
 
+    // $scope.lista = function () {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: "views/lista/listarProdutos.php",
+    //         async: false,
+    //         success: function (resposta) {
+    //             $scope.produtos = resposta;
+    //             salvarLista(resposta);
+    //         }
+    //     });
+    // };
+    
     $scope.lista = function () {
-        $.ajax({
-            type: "GET",
-            url: "views/lista/listarProdutos.php",
-            success: function (resposta) {
-                $scope.produtos = resposta;
-                alert($scope.produtos);
-            }
-        })
-    };
+        $http.get("views/lista/listarProdutos.php")
+            .success(function (data) {
+                // $scope.produto = data;
+                salvarLista(data)
+            })
+    }
 
-    $scope.produtos = [
-        {
-            "id": 1,
-            "descricao": "Teste",
-            "preco": 2.50,
-            "comentario": "teste",
-            "altura": 3,
-            "largura": 4,
-            "profundidade": 5
-        }
-    ]
+    function salvarLista(lista) {
+        produtos = lista;
+        $scope.produtos = lista;
+    }
 
     $scope.deletar = function (id) {
         if (confirm("Deseja mesmo excluir este produto?")) {
@@ -48,27 +50,6 @@ app.controller('ProdutoListaController', function ($scope, $http) {
         }
     };
 
-    // $scope.deletar = function(id) {
-    //     if (confirm("Deseja mesmo excluir este produto?")) {
-    //         $http.post("views/lista/deletarProduto.php", {
-    //                 'id': id
-    //             })
-    //             .success(function(data) {
-    //                 alert(data);
-    //                 $scope.show_data();
-    //             });
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
-    // $scope.lista = function () {
-    //     $http.get("views/lista/listarProdutos.php")
-    //         .success(function (data) {
-    //             $scope.produto = data;
-    //             alert($scope.produto);
-    //         })
-    // }
 
 });
 

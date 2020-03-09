@@ -9,6 +9,10 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/cadastro/cadastroProduto.html',
             controller: 'ProdutoCadastroController'
         })
+        .when('/produto/:id', {
+            templateUrl: 'views/cadastro/cadastroProduto.html',
+            controller: 'ProdutoCadastroController'
+        })
         .when('/listaProduto', {
             templateUrl: 'views/lista/listaProduto.html',
             controller: 'ProdutoListaController'

@@ -25,8 +25,6 @@ app.controller('ProdutoCadastroController', function ($scope, $http) {
             var altura = $("#altura").val();
             var profundidade = $("#profundidade").val();
 
-            alert($scope.btnName);
-
             if (codigo == "") {
                 alert("Informe o Código do Produto!!");
             } else if (descricao == "") {
@@ -75,22 +73,6 @@ app.controller('ProdutoCadastroController', function ($scope, $http) {
         });
     });
 
-    $scope.editar = function (id, descricao, preco, comentario, altura, largura, profundidade) {
-        // $scope.id = id;
-        // $scope.descricao = descricao;
-        // $scope.preco = preco;
-        // $scope.comentario = comentario;
-        // $scope.altura = altura;
-        // $scope.largura = largura;
-        // $scope.profundidade = profundidade;
-        $("#codigo").val(id);
-        $("#descricao").val(descricao);
-        $("#preco").val(preco);
-        $("#comentario").val(comentario);
-        $("#largura").val(altura);
-        $("#altura").val(largura);
-        $("#profundidade").val(profundidade);
-        $scope.btnName = "Editar";
-    }
+    
 
 });
