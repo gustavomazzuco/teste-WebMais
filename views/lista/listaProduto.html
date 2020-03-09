@@ -31,12 +31,12 @@
                 <td>{{produto.largura}}</td>
                 <td>{{produto.profundidade}}</td>
                 <td>
-                    <button class="btn btn-success btn-xs" ng-click="update_data()">
+                    <button class="btn btn-success btn-xs" ng-click="editar(produto.id, produto.descricao, produto.preco, produto.comentario. produto.altura. produto.largura, produto.profundidade)" href="#/cadastroProduto">
                         <span class="glyphicon glyphicon-edit">Editar</span>
                     </button>
                 </td>
                 <td>
-                    <button class="btn btn-danger btn-xs" ng-click="delete_data()">
+                    <button class="btn btn-danger btn-xs" ng-click="deletar(produto.id)">
                         <span class="glyphicon glyphicon-trash">Excluir</span>
                     </button>
                 </td>

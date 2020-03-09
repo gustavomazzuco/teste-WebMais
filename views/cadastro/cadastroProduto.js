@@ -1,6 +1,7 @@
 var app = angular.module('MyApp');
 app.controller('ProdutoCadastroController', function ($scope, $http) {
 
+    $scope.btnName = "Salvar";
     $('.codigo').mask('#', { reverse: true });
     $('.decimal').mask('#0.00', { reverse: true });
 
@@ -24,6 +25,8 @@ app.controller('ProdutoCadastroController', function ($scope, $http) {
             var altura = $("#altura").val();
             var profundidade = $("#profundidade").val();
 
+            alert($scope.btnName);
+
             if (codigo == "") {
                 alert("Informe o Código do Produto!!");
             } else if (descricao == "") {
@@ -40,7 +43,7 @@ app.controller('ProdutoCadastroController', function ($scope, $http) {
                 alert("Informe a Altura do Produto!!");
             } else {
 
-                var data = "codigo=" + codigo + "&descricao=" + descricao + "&preco=" + preco + "&comentario=" + comentario + "&largura=" + largura + "&altura=" + altura + "&profundidade=" + profundidade;
+                var data = "codigo=" + codigo + "&descricao=" + descricao + "&preco=" + preco + "&comentario=" + comentario + "&largura=" + largura + "&altura=" + altura + "&profundidade=" + profundidade + "&botao=" + $scope.btnName;
                 console.log('aqui');
                 event.preventDefault();
                 $.ajax({
@@ -71,5 +74,23 @@ app.controller('ProdutoCadastroController', function ($scope, $http) {
             };
         });
     });
+
+    $scope.editar = function (id, descricao, preco, comentario, altura, largura, profundidade) {
+        // $scope.id = id;
+        // $scope.descricao = descricao;
+        // $scope.preco = preco;
+        // $scope.comentario = comentario;
+        // $scope.altura = altura;
+        // $scope.largura = largura;
+        // $scope.profundidade = profundidade;
+        $("#codigo").val(id);
+        $("#descricao").val(descricao);
+        $("#preco").val(preco);
+        $("#comentario").val(comentario);
+        $("#largura").val(altura);
+        $("#altura").val(largura);
+        $("#profundidade").val(profundidade);
+        $scope.btnName = "Editar";
+    }
 
 });
