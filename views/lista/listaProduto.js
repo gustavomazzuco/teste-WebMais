@@ -1,5 +1,5 @@
 var app = angular.module('MyApp');
-app.controller('ProdutoListaController', function ($scope, $http) {
+app.controller('ProdutoListaController', function ($scope, $http, $location) {
 
     var produtos;
 
@@ -30,7 +30,6 @@ app.controller('ProdutoListaController', function ($scope, $http) {
 
     $scope.deletar = function (id) {
         if (confirm("Deseja mesmo excluir este produto?")) {
-            alert(id);
             var data = "id=" + id
             event.preventDefault();
             $.ajax({
@@ -50,6 +49,10 @@ app.controller('ProdutoListaController', function ($scope, $http) {
         }
     };
 
+    $scope.editar = function(id,descricao,preco,comentario,altura,largura,profundidade) {
+        $location.path('/cadastroProduto');
+        $scope.btnName = "Editar";
+    };
 
 });
 

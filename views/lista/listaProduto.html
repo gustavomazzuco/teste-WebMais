@@ -1,7 +1,6 @@
 <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
-        <input type="search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        <input type="search" ng-model="busca">
     </form>
     <a class="btn btn-outline-info" href="#/cadastroProduto">Novo Registro</a>
 </nav>
@@ -31,7 +30,7 @@
                 <td>{{produto.largura}}</td>
                 <td>{{produto.profundidade}}</td>
                 <td>
-                    <button class="btn btn-success btn-xs" href="#/cadastroProduto" ng-click="editar(produto)">
+                    <button class="btn btn-success btn-xs" ng-click="editar(produto.id, produto.descricao, produto.preco, produto.comentario. produto.altura. produto.largura, produto.profundidade)">
                         <span class="glyphicon glyphicon-edit">Editar</span>
                     </button>
                 </td>

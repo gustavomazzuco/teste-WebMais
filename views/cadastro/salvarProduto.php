@@ -18,7 +18,7 @@ $validacao = mysqli_query($conexao,$select);
 $linha = mysqli_fetch_array($validacao);
 
 if ($btnName == "Editar"){
-    $sql = "UPDATE produto SET descricao = '$descricao', preco = $preco, comentario = '$comentario', altura = $altura, largura = $largura, profundidade = $profundidade WHERE id = $id";
+    $sql = "UPDATE produto SET descricao = '$descricao', preco = $preco, comentario = '$comentario', altura = $altura, largura = $largura, profundidade = $profundidade WHERE id = $codigo";
     mysqli_query($conexao,$sql);
     echo "Salvo com Sucesso!!";
 } else if ($btnName == "Salvar"){
